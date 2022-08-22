@@ -16,12 +16,14 @@ const RANKINGS = {
 } as const;
 
 const isSeqIncrementN = (n: number) => {
-    return (arr: Card[]) => {
+    return (cards: Card[]) => {
+        const [first, ...rest] = cards;
+
         return (
-            arr.reduce<Card | null>(
+            rest.reduce<Card | null>(
                 (prev, curr) => (!prev || curr.order - prev.order !== n ? null : curr),
-                null,
-            ) === _.last(arr)
+                first,
+            ) === _.last(cards)
         );
     };
 };
