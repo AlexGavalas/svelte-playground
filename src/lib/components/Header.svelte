@@ -9,6 +9,9 @@
                 <a href="/poker">Poker</a>
             </li>
             <li>
+                <a href="/todos">Todos</a>
+            </li>
+            <li>
                 <a href="/about">About</a>
             </li>
         </ul>

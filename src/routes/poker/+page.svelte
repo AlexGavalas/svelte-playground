@@ -147,9 +147,6 @@
         justify-self: flex-end;
     }
 
-    .player2 {
-    }
-
     .card {
         transition: transform 0.25s linear;
     }
