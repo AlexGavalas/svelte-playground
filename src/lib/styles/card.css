@@ -1,0 +1,144 @@
+.hand {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.card {
+    --size: 10rem;
+    --back-start: rgb(0, 90, 0);
+    --back-end: rgb(8, 179, 8);
+    --spades: '\02660';
+    --hearts: '\02665';
+    --diams: '\02666';
+    --clubs: '\02663';
+
+    width: var(--size);
+    height: calc(var(--size) * 1.5);
+    border-radius: 5px;
+    position: relative;
+    padding: 1rem;
+    font-size: 150%;
+    background: white;
+    border: 1px solid black;
+    user-select: none;
+}
+
+.card.back {
+    background: linear-gradient(45deg, var(--back-start), var(--back-end));
+    border: none;
+}
+
+.card.diams,
+.card.hearts {
+    color: red;
+}
+
+.card.spades,
+.card.clubs {
+    color: black;
+}
+
+.suit::after {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    white-space: pre;
+    line-height: 1.5;
+    font-size: 140%;
+    letter-spacing: 0.5em;
+    left: 0.5em;
+}
+
+.rank {
+    text-transform: uppercase;
+}
+
+.spades {
+    --s: var(--spades);
+}
+
+.hearts {
+    --s: var(--hearts);
+}
+
+.diams {
+    --s: var(--diams);
+}
+
+.clubs {
+    --s: var(--clubs);
+}
+
+.rank-2 .suit::after {
+    content: var(--s) '\a'var(--s);
+}
+
+.rank-3 .suit::after {
+    content: var(--s) '\a'var(--s) '\a'var(--s);
+}
+
+.rank-4 .suit::after {
+    content: var(--s) var(--s) '\a'var(--s) var(--s);
+}
+
+.rank-5 .suit::after {
+    content: var(--s) var(--s) '\a'var(--s) '\a'var(--s) var(--s);
+}
+
+.rank-6 .suit::after {
+    content: var(--s) var(--s) '\a'var(--s) var(--s) '\a'var(--s) var(--s);
+}
+
+.rank-7 .suit::after {
+    content: var(--s) var(--s) '\a'var(--s) var(--s) var(--s) '\a'var(--s) var(--s);
+}
+
+.rank-8 .suit::after {
+    content: var(--s) var(--s) var(--s) '\a'var(--s) var(--s) '\a'var(--s) var(--s) var(--s);
+}
+
+.rank-9 .suit::after {
+    content: var(--s) var(--s) var(--s) '\a'var(--s) var(--s) var(--s) '\a'var(--s) var(--s)
+        var(--s);
+}
+
+.rank-10 .suit::after {
+    content: var(--s) var(--s) var(--s) '\a'var(--s) var(--s) var(--s) var(--s) '\a'var(--s)
+        var(--s) var(--s);
+}
+
+.rank-j .suit::after {
+    font-size: 250%;
+    content: '\00248';
+}
+
+.rank-q .suit::after {
+    font-size: 250%;
+    content: '\0211A';
+}
+
+.rank-k .suit::after {
+    font-size: 250%;
+    content: '\0004B';
+}
+
+.rank-a .suit::after {
+    font-size: 250%;
+    content: '\00041';
+}
+
+.rank-j .suit::before {
+    content: var(--s);
+}
+
+.rank-q .suit::before,
+.rank-k .suit::before,
+.rank-a .suit::before {
+    content: var(--s);
+    position: relative;
+    left: 3px;
+}
