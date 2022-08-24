@@ -1,15 +1,15 @@
 <script lang="ts">
     import { fade } from 'svelte/transition';
+    import { navigating } from '$app/stores';
     import Header from '$lib/components/Header.svelte';
     import '$lib/styles/style.css';
 
-    // currentRoute used as key helps animate transition through routes in this layout
-    export let data: { currentRoute: string };
+    $: changed = $navigating?.from !== $navigating?.to;
 </script>
 
 <Header />
 
-{#key data.currentRoute}
+{#key changed}
     <main in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
         <slot />
     </main>
