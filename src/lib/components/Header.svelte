@@ -3,16 +3,19 @@
     <nav>
         <ul>
             <li>
-                <a sveltekit:prefetch href="/blog">Blog</a>
+                <a data-sveltekit-prefetch href="/blog">Blog</a>
             </li>
             <li>
-                <a sveltekit:prefetch href="/poker">Poker</a>
+                <a data-sveltekit-prefetch href="/poker">Poker</a>
             </li>
             <li>
-                <a sveltekit:prefetch href="/todos">Todos</a>
+                <a data-sveltekit-prefetch href="/todos">Todos</a>
             </li>
             <li>
-                <a sveltekit:prefetch href="/about">About</a>
+                <a data-sveltekit-prefetch href="/about">About</a>
+            </li>
+            <li>
+                <a href="/login">Login</a>
             </li>
         </ul>
     </nav>
