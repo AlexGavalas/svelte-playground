@@ -4,7 +4,10 @@ import { add, remove, update } from '../../todos/_api';
 
 const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-export const POST: RequestHandler = async ({ request }) => {
+export const POST: RequestHandler = async ({ request, url, ...rest }) => {
+    if (url.toString().endsWith('DELETE')) return DELETE({ request, url, ...rest });
+    if (url.toString().endsWith('PATCH')) return PATCH({ request, url, ...rest });
+
     await wait(500);
 
     // if (!locals.userid) {

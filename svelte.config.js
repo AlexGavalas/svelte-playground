@@ -24,14 +24,6 @@ const config = {
     ],
     kit: {
         adapter: adapter(),
-
-        methodOverride: {
-            allowed: ['PATCH', 'DELETE'],
-        },
-
-        prerender: {
-            default: true,
-        },
     },
 };
 
