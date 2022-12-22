@@ -1,6 +1,6 @@
 import { dev } from '$app/environment';
 import { env } from '$env/dynamic/private';
-import { invalid, redirect } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import jwt from 'jsonwebtoken';
 
 import type { Actions, PageServerLoad } from './$types';
@@ -20,12 +20,12 @@ export const actions: Actions = {
         const username = data.get('username')?.toString();
         const password = data.get('password')?.toString() ?? '';
 
-        if (!username) return invalid(400, { username, missing: true });
+        if (!username) return fail(400, { username, missing: true });
 
         const user = USERS.find((user) => user.username === username && user.password === password);
 
         if (!user) {
-            return invalid(400, { username, incorrect: true });
+            return fail(400, { username, incorrect: true });
         }
 
         const token = jwt.sign(user, env.JWT_KEY, { algorithm: 'HS256' });

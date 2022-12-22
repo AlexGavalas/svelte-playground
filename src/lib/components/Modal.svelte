@@ -10,6 +10,7 @@
         in:fade={{ duration: 150, delay: 150 }}
         out:fade={{ duration: 150 }}
         on:click|self
+        on:keypress|self
     >
         <div class="modal">
             <slot />

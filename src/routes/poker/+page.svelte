@@ -114,6 +114,7 @@
                     class="card rank-{card.rank} {card.suit}"
                     class:selected={s.has(card)}
                     on:click={() => !hasChangedCards && toggleSelected(card)}
+                    on:keypress={() => !hasChangedCards && toggleSelected(card)}
                 >
                     <div class="rank">{card.rank}</div>
                     <div class="suit" />
